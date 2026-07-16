@@ -67,7 +67,7 @@ ingredientes_manual = st.text_area(
 st.write("### 2. Preferencias de cocinado")
 col1, col2 = st.columns(2)
 with col1:
-    tiempo = st.selectbox("Tiempo límite:", ["15 minutos", "30 minutos", "1 hora", "Sin límite"])
+    tiempo = st.selectbox("Tiempo disponible:", ["Sin límite", "15 minutos", "30 minutos", "1 hora"])
 with col2:
     dieta = st.multiselect("Filtros dietéticos:", ["Sin gluten", "Sin lactosa", "Vegano", "Vegetariano"],
                            placeholder="Ninguna")
