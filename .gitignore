@@ -1,0 +1,20 @@
+# Entorno streamlit
+.streamlit/secrets.toml
+
+# Entorno virtual de Python
+.venv/
+__pycache__/
+*.pyc
+
+# Carpeta de credenciales
+credentials/*
+
+# Archivos de variables de entorno
+.env
+*.env
+
+# Configuración local de IDE
+.idea/
+.vscode/
+
+

@@ -1,0 +1,14 @@
+[server]
+maxUploadSize = 15
+
+[theme]
+base = "light"
+# Un verde esmeralda premium, muy "foodtech"
+primaryColor = "#10B981"
+# Fondo principal completamente limpio
+backgroundColor = "#FFFFFF"
+# Gris azulado muy suave y limpio para la barra lateral (da sensación de app profesional)
+secondaryBackgroundColor = "#F8FAFC"
+# Gris oscuro casi negro para una legibilidad excelente
+textColor = "#0F172A"
+font = "sans serif"
