@@ -15,9 +15,8 @@ import json
 # -------------------------------------------------------------------------------------------------------
 # CONFIGURACIÓN DE CONSTANTES (PÚBLICAS)
 # -------------------------------------------------------------------------------------------------------
-LOCATION = "us-central1"
-MODEL = "gemini-2.5-flash"
-
+LOCATION = st.secrets["config"].location
+MODEL = st.secrets["config"].model
 
 # -------------------------------------------------------------------------------------------------------
 # CARGA DINÁMICA DE CREDENCIALES Y PROJECT_ID (100% Protegido)
