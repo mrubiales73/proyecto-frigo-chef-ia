@@ -7,7 +7,7 @@ __pycache__/
 *.pyc
 
 # Carpeta de credenciales
-credentials/*
+credentials/
 
 # Archivos de variables de entorno
 .env

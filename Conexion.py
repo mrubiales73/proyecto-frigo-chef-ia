@@ -17,13 +17,14 @@ import json
 # -------------------------------------------------------------------------------------------------------
 LOCATION = "us-central1"
 MODEL = "gemini-2.5-flash"
-SERVICE_ACCOUNT_FILE = r"credentials/credentials.json"
+
 
 # -------------------------------------------------------------------------------------------------------
 # CARGA DINÁMICA DE CREDENCIALES Y PROJECT_ID (100% Protegido)
 # -------------------------------------------------------------------------------------------------------
 credentials = None
 project_id = None
+
 
 # 1. Producción: Intentamos leer los secretos de Streamlit (Evitamos exponer el ID del proyecto)
 if "gcp_service_account" in st.secrets:
@@ -39,22 +40,7 @@ if "gcp_service_account" in st.secrets:
     except Exception as e:
         st.error(f"Error cargando las credenciales desde Streamlit Secrets: {e}")
 
-# 2. Desarrollo: Si no existen secretos, recurrimos al archivo físico local
-if credentials is None:
-    try:
-        credentials = service_account.Credentials.from_service_account_file(
-            SERVICE_ACCOUNT_FILE,
-            scopes=["https://www.googleapis.com/auth/cloud-platform"]
-        )
-        # Extraemos el PROJECT_ID dinámicamente del archivo local credentials.json
-        with open(SERVICE_ACCOUNT_FILE, "r") as f:
-            datos_json = json.load(f)
-            project_id = datos_json.get("project_id")
-
-    except Exception as e:
-        st.error(f"No se pudo cargar el archivo local de credenciales: {e}")
-
-# 3. Control de Seguridad: Si no se ha podido determinar el ID de proyecto, lanzamos un aviso
+# 2. Control de Seguridad: Si no se ha podido determinar el ID de proyecto, lanzamos un aviso
 if not project_id:
     st.error("🔒 Error crítico de seguridad: No se pudo determinar el Project ID de Google Cloud de forma dinámica.")
 
